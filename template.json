@@ -23,62 +23,6 @@
 			]
 		},
 		{
-			"name": "Mutate Article Page",
-			"url": "/mutate-article-page",
-			"items": [
-				{
-					"name": "item-1",
-					"url": "/mutate-article-page#item-1"
-				},
-				{
-					"name": "item-2",
-					"url": "/mutate-article-page#item-2"
-				}
-			]
-		},
-		{
-			"name": "Article Preview",
-			"url": "/article-preview",
-			"items": [
-				{
-					"name": "item-1",
-					"url": "/article-preview#item-1"
-				},
-				{
-					"name": "item-2",
-					"url": "/article-preview#item-2"
-				}
-			]
-		},
-		{
-			"name": "Profile Information",
-			"url": "/profile-information",
-			"items": [
-				{
-					"name": "item-1",
-					"url": "/profile-information#item-1"
-				},
-				{
-					"name": "item-2",
-					"url": "/profile-information#item-2"
-				}
-			]
-		},
-		{
-			"name": "Tag List",
-			"url": "/tag-list",
-			"items": [
-				{
-					"name": "item-1",
-					"url": "/tag-list#item-1"
-				},
-				{
-					"name": "item-2",
-					"url": "/tag-list#item-2"
-				}
-			]
-		},
-		{
 			"name": "Pricing",
 			"url": "/pricing",
 			"items": [
