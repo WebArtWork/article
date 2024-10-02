@@ -154,6 +154,18 @@
 					"
 					class="header__nav header__nav--mobile"
 				>
+				<a
+					class="header__nav-link header__nav-link--github-mobile"
+					href="https://github.com/WebArtWork/wjst"
+					data-original-title="GitHub"
+					target="_blank"
+				>
+					<img
+						class="header__nav-icon"
+						src="img/github.svg"
+						alt="github"
+					/>
+				</a>
 					<div class="burger-wrap">
 						<div class="burger" id="burger"></div>
 					</div>
@@ -168,6 +180,174 @@
 						item-url="/"
 					>
 						<a href="/" class="header__nav-link">Getting started</a>
+					</li>
+					
+					<li
+						class="main-content__nav-item"
+						item-url="/mutate-article-page"
+					>
+						<a href="/mutate-article-page" class="main-content__nav-link"
+							>Mutate Article Page</a
+						>
+						<ul class="main-content__nav-in">
+							
+							<li class="main-content__nav-in-item">
+								<a
+									href="/mutate-article-page#item-1"
+									class="main-content__nav-link"
+									>item-1</a
+								>
+							</li>
+							
+							<li class="main-content__nav-in-item">
+								<a
+									href="/mutate-article-page#item-2"
+									class="main-content__nav-link"
+									>item-2</a
+								>
+							</li>
+							
+						</ul>
+					</li>
+					
+					<li
+						class="main-content__nav-item"
+						item-url="/article-listings"
+					>
+						<a href="/article-listings" class="main-content__nav-link"
+							>Article Listings</a
+						>
+						<ul class="main-content__nav-in">
+							
+							<li class="main-content__nav-in-item">
+								<a
+									href="/article-listings#item-1"
+									class="main-content__nav-link"
+									>item-1</a
+								>
+							</li>
+							
+							<li class="main-content__nav-in-item">
+								<a
+									href="/article-listings#item-2"
+									class="main-content__nav-link"
+									>item-2</a
+								>
+							</li>
+							
+						</ul>
+					</li>
+					
+					<li
+						class="main-content__nav-item"
+						item-url="/article-preview"
+					>
+						<a href="/article-preview" class="main-content__nav-link"
+							>Article Preview</a
+						>
+						<ul class="main-content__nav-in">
+							
+							<li class="main-content__nav-in-item">
+								<a
+									href="/article-preview#item-1"
+									class="main-content__nav-link"
+									>item-1</a
+								>
+							</li>
+							
+							<li class="main-content__nav-in-item">
+								<a
+									href="/article-preview#item-2"
+									class="main-content__nav-link"
+									>item-2</a
+								>
+							</li>
+							
+						</ul>
+					</li>
+					
+					<li
+						class="main-content__nav-item"
+						item-url="/profile-information"
+					>
+						<a href="/profile-information" class="main-content__nav-link"
+							>Profile Information</a
+						>
+						<ul class="main-content__nav-in">
+							
+							<li class="main-content__nav-in-item">
+								<a
+									href="/profile-information#item-1"
+									class="main-content__nav-link"
+									>item-1</a
+								>
+							</li>
+							
+							<li class="main-content__nav-in-item">
+								<a
+									href="/profile-information#item-2"
+									class="main-content__nav-link"
+									>item-2</a
+								>
+							</li>
+							
+						</ul>
+					</li>
+					
+					<li
+						class="main-content__nav-item"
+						item-url="/tag-list"
+					>
+						<a href="/tag-list" class="main-content__nav-link"
+							>Tag List</a
+						>
+						<ul class="main-content__nav-in">
+							
+							<li class="main-content__nav-in-item">
+								<a
+									href="/tag-list#item-1"
+									class="main-content__nav-link"
+									>item-1</a
+								>
+							</li>
+							
+							<li class="main-content__nav-in-item">
+								<a
+									href="/tag-list#item-2"
+									class="main-content__nav-link"
+									>item-2</a
+								>
+							</li>
+							
+						</ul>
+					</li>
+					
+					<li
+						class="main-content__nav-item"
+						item-url="/dashboard"
+					>
+						<a href="/dashboard" class="main-content__nav-link"
+							>Dashboard</a
+						>
+						<ul class="main-content__nav-in">
+							
+							<li class="main-content__nav-in-item">
+								<a
+									href="/dashboard#item-1"
+									class="main-content__nav-link"
+									>item-1</a
+								>
+							</li>
+							
+							<li class="main-content__nav-in-item">
+								<a
+									href="/dashboard#item-2"
+									class="main-content__nav-link"
+									>item-2</a
+								>
+							</li>
+							
+						</ul>
 					</li>
 					
 					<li
@@ -915,6 +1095,9 @@
 					/>
 				</svg>
 			</a>
+			<div class="burger-wrap-n">
+				<div class="burger-n"></div>
+			</div>
 			<ul class="navbar-navigation">
 				<li class="navbar-navigation__link"><a href=""> Home </a></li>
 				<li class="navbar-navigation__link">
@@ -971,6 +1154,39 @@
 					dropdown.classList.toggle("open"); // Додаємо або видаляємо клас 'open'
 				});
 			});
+			document.querySelector('.burger-wrap-n').addEventListener('click', function () {
+				const menuNavigation = document.querySelector('.navbar-navigation');
+				const burger = document.querySelector('.burger-n');
+
+				menuNavigation.classList.toggle('navbar-navigation--open');
+				burger.classList.toggle('burger-n--close');
+			});
+			document.addEventListener("DOMContentLoaded", function() {
+    const navbarForm = document.querySelector('.navbar-form');
+    const navbarNavigation = document.querySelector('.navbar-navigation');
+    const navbar = document.querySelector('.navbar');
+
+    function moveNavbarForm() {
+        if (window.innerWidth <= 1024) {
+            // Переместить форму внутрь navbar-navigation, если она там не находится
+            if (navbarForm.parentElement !== navbarNavigation) {
+                navbarNavigation.appendChild(navbarForm);
+            }
+        } else {
+            // Вернуть форму обратно в navbar, если она там
+            if (navbarForm.parentElement === navbarNavigation) {
+                navbar.appendChild(navbarForm);
+            }
+        }
+    }
+
+    // Инициализация функции при загрузке страницы
+    moveNavbarForm();
+
+    // Добавить обработчик события на изменение размера окна
+    window.addEventListener('resize', moveNavbarForm);
+});
+
 		</script>
 	</div>
 </div>
@@ -1339,20 +1555,64 @@
 </div>
 -->
 
+				<footer class="footer">
+					<p class="footer__text">
+						<span class="footer__text-part">Wjst is copyright ©2024 Web Art Work</span>
+						<span class="footer__text-part">
+							Licensed for use under the permissive MIT Open Source License.</span
+						>
+						<span class="footer__text-part">
+							Architected by Honchar Denys</span
+						>
+					</p>
+					<div class="footer-wrap">
+						<div class="footer__item-link">
+							<div class="footer__link-title">
+								Title for links
+							</div>
+							<a href="" class="footer__link">
+								- Link here
+							</a>
+							<a href="" class="footer__link">
+								- Link here
+							</a>
+							<a href="" class="footer__link">
+								- Link here
+							</a>
+						</div>
+						<div class="footer__item-link footer__item-link--center">
+							<div class="footer__link-title">
+								Title for links
+							</div>
+							<a href="" class="footer__link">
+								- Link here
+							</a>
+							<a href="" class="footer__link">
+								- Link here
+							</a>
+							<a href="" class="footer__link">
+								- Link here
+							</a>
+						</div>
+						<div class="footer__item-link footer__item-link--end">
+							<div class="footer__link-title">
+								Title for links
+							</div>
+							<a href="" class="footer__link">
+								- Link here
+							</a>
+							<a href="" class="footer__link">
+								- Link here
+							</a>
+							<a href="" class="footer__link">
+								- Link here
+							</a>
+						</div>
+					</div>
+				</footer>
 			</main>
+
 		</div>
-		<footer class="footer">
-			<p class="footer__text">
-				<span class="footer__text-part">Wjst is copyright ©2024</span>
-				<a href="https://webart.work" class="footer__link"
-					>Web Art Work</a
-				>,
-				<span class="footer__text-part">
-					licensed for use under the permissive MIT Open Source
-					License.</span
-				>
-			</p>
-		</footer>
 		<script src="js/index.js"></script>
 	</body>
 </html>
