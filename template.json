@@ -41,12 +41,28 @@
 			"url": "/api",
 			"items": [
 				{
-					"name": "item-1",
-					"url": "/api#item-1"
+					"name": "Articles by tag Id",
+					"url": "/api#articles-by-tag-id"
 				},
 				{
-					"name": "item-2",
-					"url": "/api#item-2"
+					"name": "Articles by author Id",
+					"url": "/api#articles-by-author-id"
+				},
+				{
+					"name": "Global tags",
+					"url": "/api#global-tags"
+				},
+				{
+					"name": "Local tags by author Id",
+					"url": "/api#local-tags-by-author-id"
+				},
+				{
+					"name": "Authors",
+					"url": "/api#authors"
+				},
+				{
+					"name": "Author by author Id",
+					"url": "/api#author-by-author-id"
 				}
 			]
 		},
