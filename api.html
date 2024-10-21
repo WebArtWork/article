@@ -338,497 +338,497 @@
 			</aside>
 			<main class="main-content__section">
 				<head>
-    <style>
-      code {
-        background-color: #2e2e2e;
-      }
-      .editor {
-        width: 100%;
-        min-height: 50px;
-        border: 1px solid #474747;
-        margin-bottom: 20px;
-      }
-    </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
-  </head>
-  
-  <div>
-    <div id="articles-by-tag-id">
-  
-      <h1>Get Articles by Tag ID</h1>
-  
-      <p><strong>URL:</strong> <code>/api/article/byTag/:tag_id</code></p>
-  
-      <p><strong>Method:</strong> GET</p>
-  
-      <p><strong>Description:</strong> This endpoint retrieves all articles associated with a specific tag, identified by
-        its <code>tag_id</code>. It allows users to filter articles based on tags for more targeted access to content.</p>
-  
-      <h2>Parameters</h2>
-      <ul>
-        <li><strong>Path Parameter:</strong> <code>:tag_id</code> (string) – <em>Required</em>. The unique identifier of
-          the tag whose associated articles you want to retrieve.</li>
-      </ul>
-  
-      <h2>Request Example</h2>
-      <p>This request fetches all articles with the tag ID "12345".</p>
-      <div id="editor1" class="editor">GET /api/article/byTag/12345</div>
-  
-      <h2>Responses</h2>
-      <h3>Success (200 OK)</h3>
-      <p>A successful response will return a JSON object containing an array of articles associated with the specified
-        <code>tag_id</code>. Each article includes details like title, content, author, and other relevant metadata.
-      </p>
-      
-      <div id="editor2" class="editor">{
-    "status": "success",
-    "data": [
-      {
-        "id": "article123",
-        "title": "The Future of Computational Intelligence",
-        "author": "John Doe",
-        "published": "2024-08-11T10:00:00Z",
-        "description": "This article explores the future of computational intelligence...",
-        "shortDescription": "In this article...",
-        "tags": ["computational", "intelligence"]
-      },
-      {
-        "id": "article124",
-        "title": "Introduction to Quantum Mechanics",
-        "author": "Jane Smith",
-        "published": "2024-09-01T12:30:00Z",
-        "description": "This article provides an introduction to quantum mechanics...",
-        "shortDescription": "In this article...",
-        "tags": ["physics", "quantum", "mechanics"]
-      }
-    ]
-  }
-      </div>
-  
-      <h3>404 Not Found</h3>
-      <p>The requested tag ID does not exist or has no associated articles.</p>
-      <div id="editor3" class="editor">{
-    "status": "error",
-    "message": "No articles found for the specified tag ID."
-  }      
-      </div>
-  
-      <h2>Response Fields</h2>
-      <ul>
-        <li><code>status</code> (string): Status of the response, either <code>"success"</code> or <code>"error"</code>.</li>
-        <li><code>data</code> (array): List of articles associated with the given tag ID.</li>
-        <ul>
-          <li>&emsp;<code>id</code> (string): Unique identifier of the article.</li>
-          <li>&emsp;<code>title</code> (string): Title of the article.</li>
-          <li>&emsp;<code>author</code> (string): Name of the author who wrote the article.</li>
-          <li>&emsp;<code>published</code> (string): The date and time the article was published.</li>
-          <li>&emsp;<code>description</code> (string): The full description of the article.</li>
-          <li>&emsp;<code>shortDescription</code> (string): The short description of the article.</li>
-          <li>&emsp;<code>tags</code> (array): List of tags associated with the article.</li>
-        </ul>
-      </ul>
-  
-      <h2>Notes</h2>
-      <ul>
-        <li>Ensure that the <code>tag_id</code> provided in the request URL is valid and corresponds to a tag in the system.</li>
-        <li>If no articles are found for the given <code>tag_id</code>, a 404 response will be returned.</li>
-      </ul>
-    </div>
-    
-    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-  
-    <div id="articles-by-author-id">
-  
-      <h1>Get Articles by Author ID</h1>
-  
-      <p><strong>URL:</strong> <code>/api/article/byAuthor/:author_id</code></p>
-  
-      <p><strong>Method:</strong> GET</p>
-  
-      <p><strong>Description:</strong> This endpoint retrieves all articles written by a specific author, identified by
-        their <code>author_id</code>. It provides users with a way to access articles authored by a particular individual.</p>
-  
-      <h2>Parameters</h2>
-      <ul>
-        <li><strong>Path Parameter:</strong> <code>:author_id</code> (string) – <em>Required</em>. The unique identifier of the
-          author whose articles you want to retrieve.</li>
-      </ul>
-  
-      <h2>Request Example</h2>
-      <p>This request fetches all articles written by the author with ID "67890".</p>
-      <div id="editor4" class="editor">GET /api/article/byAuthor/67890</div>
-  
-      <h2>Responses</h2>
-      <h3>Success (200 OK)</h3>
-      <p>A successful response will return a JSON object containing an array of articles written by the specified author. Each
-        article includes details such as title, content, tags, and other relevant metadata.
-      </p>
-      
-      <div id="editor5" class="editor">{
-    "status": "success",
-    "data": [
-      {
-        "id": "article123",
-        "title": "The Future of Computational Intelligence",
-        "author": "John Doe",
-        "published": "2024-08-11T10:00:00Z",
-        "description": "This article explores the future of computational intelligence...",
-        "shortDescription": "In this article...",
-        "tags": ["computational", "intelligence"]
-      },
-      {
-        "id": "article124",
-        "title": "Introduction to Quantum Mechanics",
-        "author": "Jane Smith",
-        "published": "2024-09-01T12:30:00Z",
-        "description": "This article provides an introduction to quantum mechanics...",
-        "shortDescription": "In this article...",
-        "tags": ["physics", "quantum", "mechanics"]
-      }
-    ]
-  }
-      </div>
-  
-      <h3>404 Not Found</h3>
-      <p>The requested author ID does not exist or has no associated articles.</p>
-      <div id="editor6" class="editor">{
-    "status": "error",
-    "message": "No articles found for the specified author ID."
-  }    
-      </div>
-  
-      <h2>Response Fields</h2>
-      <ul>
-        <li><code>status</code> (string): Status of the response, either <code>"success"</code> or <code>"error"</code>.</li>
-        <li><code>data</code> (array): List of articles written by the given author ID.</li>
-        <ul>
-          <li>&emsp;<code>id</code> (string): Unique identifier of the article.</li>
-          <li>&emsp;<code>title</code> (string): Title of the article.</li>
-          <li>&emsp;<code>author</code> (string): Name of the author who wrote the article.</li>
-          <li>&emsp;<code>published</code> (string): The date and time the article was published.</li>
-          <li>&emsp;<code>description</code> (string): The full description of the article.</li>
-          <li>&emsp;<code>shortDescription</code> (string): The short description of the article.</li>
-          <li>&emsp;<code>tags</code> (array): List of tags associated with the article.</li>
-        </ul>
-      </ul>
-  
-      <h2>Notes</h2>
-      <ul>
-        <li>Ensure that the <code>author_id</code> provided in the request URL is valid and corresponds to an author in the system.</li>
-        <li>If no articles are found for the given <code>author_id</code>, a 404 response will be returned.</li>
-      </ul>
-    </div>
-  
-    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-  
-    <div id="global-tags">
-  
-      <h1>Get Global Tags</h1>
-  
-      <p><strong>URL:</strong> <code>/api/article/tags</code></p>
-  
-      <p><strong>Method:</strong> GET</p>
-  
-      <p><strong>Description:</strong> This endpoint retrieves a list of all global tags that are used across articles. Tags help categorize
-        content and make it easier for users to search for articles based on specific topics or themes.</p>
-  
-      <h2>Parameters</h2>
-      <ul>
-        <li><strong>No Parameters:</strong> This endpoint does not require any path or query parameters.</li>
-      </ul>
-  
-      <h2>Request Example</h2>
-      <p>This request fetches all available global tags.</p>
-      <div id="editor7" class="editor">GET /api/article/tags</div>
-  
-      <h2>Response</h2>
-      <h3>Success (200 OK)</h3>
-      <p>A successful response will return a JSON object containing an array of tags used globally across all articles. Each tag includes a
-        unique identifier, the name, and the description of the tag.
-      </p>
-      
-      <div id="editor8" class="editor">{
-    "status": "success",
-    "data": [
-      {
-        "id": "tag123",
-        "name": "computational",
-        "description": "Techniques and methods for solving complex problems using algorithms and computational systems."
-      },
-      {
-        "id": "tag124",
-        "name": "intelligence",
-        "description": "Exploration of smart systems and cognitive technologies that enable decision-making and problem-solving."
-      },
-      {
-        "id": "tag125",
-        "name": "physics",
-        "description": "Study of natural laws and phenomena governing matter, energy, and their interactions."
-      }
-    ]
-  }
-      </div>
-  
-      <h2>Response Fields</h2>
-      <ul>
-        <li><code>status</code> (string): Status of the response, either <code>"success"</code> or <code>"error"</code>.</li>
-        <li><code>data</code> (array): List of global tags.</li>
-        <ul>
-          <li>&emsp;<code>id</code> (string): Unique identifier of the tag.</li>
-          <li>&emsp;<code>name</code> (string): The name of the tag.</li>
-          <li>&emsp;<code>description</code> (string): The description of the tag.</li>
-        </ul>
-      </ul>
-  
-      <h2>Notes</h2>
-      <ul>
-        <li>The list of tags retrieved will include all tags that have been used in articles.</li>
-        <li>No additional parameters are needed for this request. The endpoint will return all available global tags.</li>
-      </ul>
-    </div>
-  
-    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-  
-    <div id="local-tags-by-author-id">
-  
-      <h1>Get Local Tags by Author ID</h1>
-  
-      <p><strong>URL:</strong> <code>/api/article/tags/:author_id</code></p>
-  
-      <p><strong>Method:</strong> GET</p>
-  
-      <p><strong>Description:</strong> This endpoint retrieves a list of tags used by a specific author, identified by
-        their <code>author_id</code>. It allows users to access tags that have been used locally within the context of
-        articles written by the specified author.</p>
-  
-      <h2>Parameters</h2>
-      <ul>
-        <li><strong>Path Parameter:</strong> <code>:author_id</code> (string) – <em>Required</em>. The unique identifier
-          of the author whose local tags you want to retrieve.</li>
-      </ul>
-  
-      <h2>Request Example</h2>
-      <p>This request fetches all tags used by the author with ID "67890".</p>
-      <div id="editor9" class="editor">GET /api/article/tags/67890</div>
-  
-      <h2>Responses</h2>
-      <h3>Success (200 OK)</h3>
-      <p>A successful response will return a JSON object containing an array of tags used in the articles written by the
-        specified author. Each tag includes a unique identifier, the name, and the description of the tag.
-      </p>
-      
-      <div id="editor10" class="editor">{
-    "status": "success",
-    "data": [
-      {
-        "id": "tag123",
-        "name": "computational",
-        "description": "Techniques and methods for solving complex problems using algorithms and computational systems."
-      },
-      {
-        "id": "tag124",
-        "name": "intelligence",
-        "description": "Exploration of smart systems and cognitive technologies that enable decision-making and problem-solving."
-      },
-      {
-        "id": "tag125",
-        "name": "physics",
-        "description": "Study of natural laws and phenomena governing matter, energy, and their interactions."
-      }
-    ]
-  }
-      </div>
-  
-      <h3>404 Not Found</h3>
-      <p>The requested author ID does not exist or has no associated tags.</p>
-      <div id="editor11" class="editor">{
-    "status": "error",
-    "message": "No tags found for the specified author ID."
-  }
-      </div>
-  
-      <h2>Response Fields</h2>
-      <ul>
-        <li><code>status</code> (string): Status of the response, either <code>"success"</code> or <code>"error"</code>.</li>
-        <li><code>data</code> (array): List of tags used by the given author ID.</li>
-        <ul>
-          <li>&emsp;<code>id</code> (string): Unique identifier of the tag.</li>
-          <li>&emsp;<code>name</code> (string): The name of the tag.</li>
-          <li>&emsp;<code>description</code> (string): The description of the tag.</li>
-        </ul>
-      </ul>
-  
-      <h2>Notes</h2>
-      <ul>
-        <li>Ensure that the <code>author_id</code> provided in the request URL is valid and corresponds to an author in the system.</li>
-        <li>If no tags are found for the given <code>author_id</code>, a 404 response will be returned.</li>
-      </ul>
-    </div>
-  
-    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-  
-    <div id="authors">
-  
-      <h1>Get All Authors</h1>
-  
-      <p><strong>URL:</strong> <code>/api/article/authors</code></p>
-  
-      <p><strong>Method:</strong> GET</p>
-  
-      <p><strong>Description:</strong> This endpoint retrieves a list of all authors who have contributed articles. It allows users to see
-        the complete set of authors, including their basic information such as name and ID.</p>
-  
-      <h2>Parameters</h2>
-      <ul>
-        <li><strong>No Parameters:</strong> This endpoint does not require any path or query parameters.</li>
-      </ul>
-  
-      <h2>Request Example</h2>
-      <p>This request fetches a list of all available authors.</p>
-      <div id="editor12" class="editor">GET /api/article/authors</div>
-  
-      <h2>Response</h2>
-      <h3>Success (200 OK)</h3>
-      <p>A successful response will return a JSON object containing an array of authors. Each author includes a unique identifier, name, and
-        additional metadata such as the number of articles they have written.
-      </p>
-      
-      <div id="editor13" class="editor">{
-    "status": "success",
-    "data": [
-      {
-        "id": "author123",
-        "name": "John Doe",
-        "article_count": 12
-      },
-      {
-        "id": "author124",
-        "name": "Jane Smith",
-        "article_count": 8
-      },
-      {
-        "id": "author125",
-        "name": "Alice Johnson",
-        "article_count": 15
-      }
-    ]
-  }
-      </div>
-  
-      <h2>Response Fields</h2>
-      <ul>
-        <li><code>status</code> (string): Status of the response, either <code>"success"</code> or <code>"error"</code>.</li>
-        <li><code>data</code> (array): List of authors who have contributed articles.</li>
-        <ul>
-          <li>&emsp;<code>id</code> (string): Unique identifier of the author.</li>
-          <li>&emsp;<code>name</code> (string): Name of the author.</li>
-          <li>&emsp;<code>article_count</code> (integer): The total number of articles written by the author.</li>
-        </ul>
-      </ul>
-  
-      <h2>Notes</h2>
-      <ul>
-        <li>This endpoint returns a complete list of all authors in the system.</li>
-        <li>The <code>article_count</code> field gives the total number of articles each author has contributed.</li>
-      </ul>
-    </div>
-  
-    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-  
-    <div id="author-by-author-id">
-  
-      <h1>Get Author by Author ID</h1>
-  
-      <p><strong>URL:</strong> <code>/api/article/author/:author_id</code></p>
-  
-      <p><strong>Method:</strong> GET</p>
-  
-      <p><strong>Description:</strong> This endpoint retrieves details about a specific author, identified by their <code>author_id</code>. It
-        allows users to access detailed information about an individual author, including their name, bio, and the number of
-        articles they have written.</p>
-  
-      <h2>Parameters</h2>
-      <ul>
-        <li><strong>Path Parameter:</strong> <code>:author_id</code> (string) – <em>Required</em>. The unique identifier of the author whose
-          details you want to retrieve.</li>
-      </ul>
-  
-      <h2>Request Example</h2>
-      <p>This request fetches details of the author with ID "67890".</p>
-      <div id="editor14" class="editor">GET /api/article/author/67890</div>
-  
-      <h2>Responses</h2>
-      <h3>Success (200 OK)</h3>
-      <p>A successful response will return a JSON object containing details of the specified author, including their unique ID, name, bio, and
-        article count.
-      </p>
-      
-      <div id="editor15" class="editor">{
-    "status": "success",
-    "data": {
-      "id": "author67890",
-      "name": "Jane Smith",
-      "bio": "Jane Smith is an expert in 3D modeling...",
-      "article_count": 12
+  <style>
+    code {
+      background-color: #2e2e2e;
     }
-  }
-      </div>
-  
-      <h3>404 Not Found</h3>
-      <p>The requested author ID does not exist in the system.</p>
-      <div id="editor16" class="editor">{
-    "status": "error",
-    "message": "Author not found for the specified ID."
-  }
-      </div>
-  
-      <h2>Response Fields</h2>
+    .editor {
+      width: 100%;
+      min-height: 50px;
+      border: 1px solid #474747;
+      margin-bottom: 20px;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+</head>
+
+<div>
+  <div id="articles-by-tag-id">
+
+    <h1>Get Articles by Tag ID</h1>
+
+    <p><strong>URL:</strong> <code>/api/article/byTag/:tag_id</code></p>
+
+    <p><strong>Method:</strong> GET</p>
+
+    <p><strong>Description:</strong> This endpoint retrieves all articles associated with a specific tag, identified by
+      its <code>tag_id</code>. It allows users to filter articles based on tags for more targeted access to content.</p>
+
+    <h2>Parameters</h2>
+    <ul>
+      <li><strong>Path Parameter:</strong> <code>:tag_id</code> (string) – <em>Required</em>. The unique identifier of
+        the tag whose associated articles you want to retrieve.</li>
+    </ul>
+
+    <h2>Request Example</h2>
+    <p>This request fetches all articles with the tag ID "12345".</p>
+    <div id="editor1" class="editor">GET /api/article/byTag/12345</div>
+
+    <h2>Responses</h2>
+    <h3>Success (200 OK)</h3>
+    <p>A successful response will return a JSON object containing an array of articles associated with the specified
+      <code>tag_id</code>. Each article includes details like title, content, author, and other relevant metadata.
+    </p>
+    
+    <div id="editor2" class="editor">{
+  "status": "success",
+  "data": [
+    {
+      "id": "article123",
+      "title": "The Future of Computational Intelligence",
+      "author": "John Doe",
+      "published": "2024-08-11T10:00:00Z",
+      "description": "This article explores the future of computational intelligence...",
+      "shortDescription": "In this article...",
+      "tags": ["computational", "intelligence"]
+    },
+    {
+      "id": "article124",
+      "title": "Introduction to Quantum Mechanics",
+      "author": "Jane Smith",
+      "published": "2024-09-01T12:30:00Z",
+      "description": "This article provides an introduction to quantum mechanics...",
+      "shortDescription": "In this article...",
+      "tags": ["physics", "quantum", "mechanics"]
+    }
+  ]
+}
+</div>
+
+    <h3>404 Not Found</h3>
+    <p>The requested tag ID does not exist or has no associated articles.</p>
+    <div id="editor3" class="editor">{
+  "status": "error",
+  "message": "No articles found for the specified tag ID."
+}
+</div>
+
+    <h2>Response Fields</h2>
+    <ul>
+      <li><code>status</code> (string): Status of the response, either <code>"success"</code> or <code>"error"</code>.</li>
+      <li><code>data</code> (array): List of articles associated with the given tag ID.</li>
       <ul>
-        <li><code>status</code> (string): Status of the response, either <code>"success"</code> or <code>"error"</code>.</li>
-        <li><code>data</code> (object): Details of the specified author.</li>
-        <ul>
-          <li>&emsp;<code>id</code> (string): Unique identifier of the author.</li>
-          <li>&emsp;<code>name</code> (string): Name of the author.</li>
-          <li>&emsp;<code>bio</code> (string): Short biography or description of the author.</li>
-          <li>&emsp;<code>article_count</code> (integer): The total number of articles written by the author.</li>
-        </ul>
+        <li>&emsp;<code>id</code> (string): Unique identifier of the article.</li>
+        <li>&emsp;<code>title</code> (string): Title of the article.</li>
+        <li>&emsp;<code>author</code> (string): Name of the author who wrote the article.</li>
+        <li>&emsp;<code>published</code> (string): The date and time the article was published.</li>
+        <li>&emsp;<code>description</code> (string): The full description of the article.</li>
+        <li>&emsp;<code>shortDescription</code> (string): The short description of the article.</li>
+        <li>&emsp;<code>tags</code> (array): List of tags associated with the article.</li>
       </ul>
-  
-      <h2>Notes</h2>
-      <ul>
-        <li>Ensure that the <code>author_id</code> provided in the request URL is valid and corresponds to an author in the system.</li>
-        <li>If the <code>author_id</code> is invalid, a 404 response will be returned.</li>
-      </ul>
-    </div>
-  
-    <script>
-      var editors = [
-          "editor1", "editor2", "editor3", "editor4", "editor5", 
-          "editor6", "editor7", "editor8", "editor9", "editor10",
-          "editor11", "editor12", "editor13", "editor14", "editor15",
-          "editor16"
-      ];
-  
-      editors.forEach(function(editorId) {
-          var editor = ace.edit(editorId);
-          editor.setTheme("ace/theme/twilight");
-          editor.session.setMode("ace/mode/json");
-          editor.setReadOnly(true);
-          
-          editor.setOptions({
-              maxLines: Infinity,
-              autoScrollEditorIntoView: true,
-          });
-      });
-  
-      ace.edit("editor1").session.setMode("ace/mode/text");
-      ace.edit("editor4").session.setMode("ace/mode/text");
-      ace.edit("editor7").session.setMode("ace/mode/text");
-      ace.edit("editor9").session.setMode("ace/mode/text");
-      ace.edit("editor12").session.setMode("ace/mode/text");
-      ace.edit("editor14").session.setMode("ace/mode/text");
-    </script>
+    </ul>
+
+    <h2>Notes</h2>
+    <ul>
+      <li>Ensure that the <code>tag_id</code> provided in the request URL is valid and corresponds to a tag in the system.</li>
+      <li>If no articles are found for the given <code>tag_id</code>, a 404 response will be returned.</li>
+    </ul>
   </div>
+  
+  <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+  <div id="articles-by-author-id">
+
+    <h1>Get Articles by Author ID</h1>
+
+    <p><strong>URL:</strong> <code>/api/article/byAuthor/:author_id</code></p>
+
+    <p><strong>Method:</strong> GET</p>
+
+    <p><strong>Description:</strong> This endpoint retrieves all articles written by a specific author, identified by
+      their <code>author_id</code>. It provides users with a way to access articles authored by a particular individual.</p>
+
+    <h2>Parameters</h2>
+    <ul>
+      <li><strong>Path Parameter:</strong> <code>:author_id</code> (string) – <em>Required</em>. The unique identifier of the
+        author whose articles you want to retrieve.</li>
+    </ul>
+
+    <h2>Request Example</h2>
+    <p>This request fetches all articles written by the author with ID "67890".</p>
+    <div id="editor4" class="editor">GET /api/article/byAuthor/67890</div>
+
+    <h2>Responses</h2>
+    <h3>Success (200 OK)</h3>
+    <p>A successful response will return a JSON object containing an array of articles written by the specified author. Each
+      article includes details such as title, content, tags, and other relevant metadata.
+    </p>
+    
+    <div id="editor5" class="editor">{
+  "status": "success",
+  "data": [
+    {
+      "id": "article123",
+      "title": "The Future of Computational Intelligence",
+      "author": "John Doe",
+      "published": "2024-08-11T10:00:00Z",
+      "description": "This article explores the future of computational intelligence...",
+      "shortDescription": "In this article...",
+      "tags": ["computational", "intelligence"]
+    },
+    {
+      "id": "article124",
+      "title": "Introduction to Quantum Mechanics",
+      "author": "Jane Smith",
+      "published": "2024-09-01T12:30:00Z",
+      "description": "This article provides an introduction to quantum mechanics...",
+      "shortDescription": "In this article...",
+      "tags": ["physics", "quantum", "mechanics"]
+    }
+  ]
+}
+</div>
+
+    <h3>404 Not Found</h3>
+    <p>The requested author ID does not exist or has no associated articles.</p>
+    <div id="editor6" class="editor">{
+  "status": "error",
+  "message": "No articles found for the specified author ID."
+}
+</div>
+
+    <h2>Response Fields</h2>
+    <ul>
+      <li><code>status</code> (string): Status of the response, either <code>"success"</code> or <code>"error"</code>.</li>
+      <li><code>data</code> (array): List of articles written by the given author ID.</li>
+      <ul>
+        <li>&emsp;<code>id</code> (string): Unique identifier of the article.</li>
+        <li>&emsp;<code>title</code> (string): Title of the article.</li>
+        <li>&emsp;<code>author</code> (string): Name of the author who wrote the article.</li>
+        <li>&emsp;<code>published</code> (string): The date and time the article was published.</li>
+        <li>&emsp;<code>description</code> (string): The full description of the article.</li>
+        <li>&emsp;<code>shortDescription</code> (string): The short description of the article.</li>
+        <li>&emsp;<code>tags</code> (array): List of tags associated with the article.</li>
+      </ul>
+    </ul>
+
+    <h2>Notes</h2>
+    <ul>
+      <li>Ensure that the <code>author_id</code> provided in the request URL is valid and corresponds to an author in the system.</li>
+      <li>If no articles are found for the given <code>author_id</code>, a 404 response will be returned.</li>
+    </ul>
+  </div>
+
+  <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+  <div id="global-tags">
+
+    <h1>Get Global Tags</h1>
+
+    <p><strong>URL:</strong> <code>/api/article/tags</code></p>
+
+    <p><strong>Method:</strong> GET</p>
+
+    <p><strong>Description:</strong> This endpoint retrieves a list of all global tags that are used across articles. Tags help categorize
+      content and make it easier for users to search for articles based on specific topics or themes.</p>
+
+    <h2>Parameters</h2>
+    <ul>
+      <li><strong>No Parameters:</strong> This endpoint does not require any path or query parameters.</li>
+    </ul>
+
+    <h2>Request Example</h2>
+    <p>This request fetches all available global tags.</p>
+    <div id="editor7" class="editor">GET /api/article/tags</div>
+
+    <h2>Response</h2>
+    <h3>Success (200 OK)</h3>
+    <p>A successful response will return a JSON object containing an array of tags used globally across all articles. Each tag includes a
+      unique identifier, the name, and the description of the tag.
+    </p>
+    
+    <div id="editor8" class="editor">{
+  "status": "success",
+  "data": [
+    {
+      "id": "tag123",
+      "name": "computational",
+      "description": "Techniques and methods for solving complex problems using algorithms and computational systems."
+    },
+    {
+      "id": "tag124",
+      "name": "intelligence",
+      "description": "Exploration of smart systems and cognitive technologies that enable decision-making and problem-solving."
+    },
+    {
+      "id": "tag125",
+      "name": "physics",
+      "description": "Study of natural laws and phenomena governing matter, energy, and their interactions."
+    }
+  ]
+}
+</div>
+
+    <h2>Response Fields</h2>
+    <ul>
+      <li><code>status</code> (string): Status of the response, either <code>"success"</code> or <code>"error"</code>.</li>
+      <li><code>data</code> (array): List of global tags.</li>
+      <ul>
+        <li>&emsp;<code>id</code> (string): Unique identifier of the tag.</li>
+        <li>&emsp;<code>name</code> (string): The name of the tag.</li>
+        <li>&emsp;<code>description</code> (string): The description of the tag.</li>
+      </ul>
+    </ul>
+
+    <h2>Notes</h2>
+    <ul>
+      <li>The list of tags retrieved will include all tags that have been used in articles.</li>
+      <li>No additional parameters are needed for this request. The endpoint will return all available global tags.</li>
+    </ul>
+  </div>
+
+  <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+  <div id="local-tags-by-author-id">
+
+    <h1>Get Local Tags by Author ID</h1>
+
+    <p><strong>URL:</strong> <code>/api/article/tags/:author_id</code></p>
+
+    <p><strong>Method:</strong> GET</p>
+
+    <p><strong>Description:</strong> This endpoint retrieves a list of tags used by a specific author, identified by
+      their <code>author_id</code>. It allows users to access tags that have been used locally within the context of
+      articles written by the specified author.</p>
+
+    <h2>Parameters</h2>
+    <ul>
+      <li><strong>Path Parameter:</strong> <code>:author_id</code> (string) – <em>Required</em>. The unique identifier
+        of the author whose local tags you want to retrieve.</li>
+    </ul>
+
+    <h2>Request Example</h2>
+    <p>This request fetches all tags used by the author with ID "67890".</p>
+    <div id="editor9" class="editor">GET /api/article/tags/67890</div>
+
+    <h2>Responses</h2>
+    <h3>Success (200 OK)</h3>
+    <p>A successful response will return a JSON object containing an array of tags used in the articles written by the
+      specified author. Each tag includes a unique identifier, the name, and the description of the tag.
+    </p>
+    
+    <div id="editor10" class="editor">{
+  "status": "success",
+  "data": [
+    {
+      "id": "tag123",
+      "name": "computational",
+      "description": "Techniques and methods for solving complex problems using algorithms and computational systems."
+    },
+    {
+      "id": "tag124",
+      "name": "intelligence",
+      "description": "Exploration of smart systems and cognitive technologies that enable decision-making and problem-solving."
+    },
+    {
+      "id": "tag125",
+      "name": "physics",
+      "description": "Study of natural laws and phenomena governing matter, energy, and their interactions."
+    }
+  ]
+}
+</div>
+
+    <h3>404 Not Found</h3>
+    <p>The requested author ID does not exist or has no associated tags.</p>
+    <div id="editor11" class="editor">{
+  "status": "error",
+  "message": "No tags found for the specified author ID."
+}
+</div>
+
+    <h2>Response Fields</h2>
+    <ul>
+      <li><code>status</code> (string): Status of the response, either <code>"success"</code> or <code>"error"</code>.</li>
+      <li><code>data</code> (array): List of tags used by the given author ID.</li>
+      <ul>
+        <li>&emsp;<code>id</code> (string): Unique identifier of the tag.</li>
+        <li>&emsp;<code>name</code> (string): The name of the tag.</li>
+        <li>&emsp;<code>description</code> (string): The description of the tag.</li>
+      </ul>
+    </ul>
+
+    <h2>Notes</h2>
+    <ul>
+      <li>Ensure that the <code>author_id</code> provided in the request URL is valid and corresponds to an author in the system.</li>
+      <li>If no tags are found for the given <code>author_id</code>, a 404 response will be returned.</li>
+    </ul>
+  </div>
+
+  <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+  <div id="authors">
+
+    <h1>Get All Authors</h1>
+
+    <p><strong>URL:</strong> <code>/api/article/authors</code></p>
+
+    <p><strong>Method:</strong> GET</p>
+
+    <p><strong>Description:</strong> This endpoint retrieves a list of all authors who have contributed articles. It allows users to see
+      the complete set of authors, including their basic information such as name and ID.</p>
+
+    <h2>Parameters</h2>
+    <ul>
+      <li><strong>No Parameters:</strong> This endpoint does not require any path or query parameters.</li>
+    </ul>
+
+    <h2>Request Example</h2>
+    <p>This request fetches a list of all available authors.</p>
+    <div id="editor12" class="editor">GET /api/article/authors</div>
+
+    <h2>Response</h2>
+    <h3>Success (200 OK)</h3>
+    <p>A successful response will return a JSON object containing an array of authors. Each author includes a unique identifier, name, and
+      additional metadata such as the number of articles they have written.
+    </p>
+    
+    <div id="editor13" class="editor">{
+  "status": "success",
+  "data": [
+    {
+      "id": "author123",
+      "name": "John Doe",
+      "article_count": 12
+    },
+    {
+      "id": "author124",
+      "name": "Jane Smith",
+      "article_count": 8
+    },
+    {
+      "id": "author125",
+      "name": "Alice Johnson",
+      "article_count": 15
+    }
+  ]
+}
+</div>
+
+    <h2>Response Fields</h2>
+    <ul>
+      <li><code>status</code> (string): Status of the response, either <code>"success"</code> or <code>"error"</code>.</li>
+      <li><code>data</code> (array): List of authors who have contributed articles.</li>
+      <ul>
+        <li>&emsp;<code>id</code> (string): Unique identifier of the author.</li>
+        <li>&emsp;<code>name</code> (string): Name of the author.</li>
+        <li>&emsp;<code>article_count</code> (integer): The total number of articles written by the author.</li>
+      </ul>
+    </ul>
+
+    <h2>Notes</h2>
+    <ul>
+      <li>This endpoint returns a complete list of all authors in the system.</li>
+      <li>The <code>article_count</code> field gives the total number of articles each author has contributed.</li>
+    </ul>
+  </div>
+
+  <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+  <div id="author-by-author-id">
+
+    <h1>Get Author by Author ID</h1>
+
+    <p><strong>URL:</strong> <code>/api/article/author/:author_id</code></p>
+
+    <p><strong>Method:</strong> GET</p>
+
+    <p><strong>Description:</strong> This endpoint retrieves details about a specific author, identified by their <code>author_id</code>. It
+      allows users to access detailed information about an individual author, including their name, bio, and the number of
+      articles they have written.</p>
+
+    <h2>Parameters</h2>
+    <ul>
+      <li><strong>Path Parameter:</strong> <code>:author_id</code> (string) – <em>Required</em>. The unique identifier of the author whose
+        details you want to retrieve.</li>
+    </ul>
+
+    <h2>Request Example</h2>
+    <p>This request fetches details of the author with ID "67890".</p>
+    <div id="editor14" class="editor">GET /api/article/author/67890</div>
+
+    <h2>Responses</h2>
+    <h3>Success (200 OK)</h3>
+    <p>A successful response will return a JSON object containing details of the specified author, including their unique ID, name, bio, and
+      article count.
+    </p>
+    
+    <div id="editor15" class="editor">{
+  "status": "success",
+  "data": {
+    "id": "author67890",
+    "name": "Jane Smith",
+    "bio": "Jane Smith is an expert in 3D modeling...",
+    "article_count": 12
+  }
+}
+</div>
+
+    <h3>404 Not Found</h3>
+    <p>The requested author ID does not exist in the system.</p>
+    <div id="editor16" class="editor">{
+  "status": "error",
+  "message": "Author not found for the specified ID."
+}
+</div>
+
+    <h2>Response Fields</h2>
+    <ul>
+      <li><code>status</code> (string): Status of the response, either <code>"success"</code> or <code>"error"</code>.</li>
+      <li><code>data</code> (object): Details of the specified author.</li>
+      <ul>
+        <li>&emsp;<code>id</code> (string): Unique identifier of the author.</li>
+        <li>&emsp;<code>name</code> (string): Name of the author.</li>
+        <li>&emsp;<code>bio</code> (string): Short biography or description of the author.</li>
+        <li>&emsp;<code>article_count</code> (integer): The total number of articles written by the author.</li>
+      </ul>
+    </ul>
+
+    <h2>Notes</h2>
+    <ul>
+      <li>Ensure that the <code>author_id</code> provided in the request URL is valid and corresponds to an author in the system.</li>
+      <li>If the <code>author_id</code> is invalid, a 404 response will be returned.</li>
+    </ul>
+  </div>
+
+  <script>
+    var editors = [
+        "editor1", "editor2", "editor3", "editor4", "editor5", 
+        "editor6", "editor7", "editor8", "editor9", "editor10",
+        "editor11", "editor12", "editor13", "editor14", "editor15",
+        "editor16"
+    ];
+
+    editors.forEach(function(editorId) {
+        var editor = ace.edit(editorId);
+        editor.setTheme("ace/theme/twilight");
+        editor.session.setMode("ace/mode/json");
+        editor.setReadOnly(true);
+        
+        editor.setOptions({
+            maxLines: Infinity,
+            autoScrollEditorIntoView: true,
+        });
+    });
+
+    ace.edit("editor1").session.setMode("ace/mode/text");
+    ace.edit("editor4").session.setMode("ace/mode/text");
+    ace.edit("editor7").session.setMode("ace/mode/text");
+    ace.edit("editor9").session.setMode("ace/mode/text");
+    ace.edit("editor12").session.setMode("ace/mode/text");
+    ace.edit("editor14").session.setMode("ace/mode/text");
+  </script>
+</div>
 				<footer class="footer">
 					<p class="footer__text">
 						<span class="footer__text-part">Wjst is copyright ©2024 Web Art Work</span>
