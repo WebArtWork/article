@@ -371,8 +371,8 @@
     </ul>
 
     <h2>Request Example</h2>
-    <p>This request fetches all articles with the tag ID "12345".</p>
-    <div id="editor1" class="editor">GET /api/article/byTag/12345</div>
+    <p>This request fetches all articles with the tag ID "672f5b529193b532be4c612b".</p>
+    <div id="editor1" class="editor">GET /api/article/byTag/672f5b529193b532be4c612b</div>
 
     <h2>Responses</h2>
     <h3>Success (200 OK)</h3>
@@ -384,22 +384,36 @@
   "status": "success",
   "data": [
     {
-      "id": "article123",
+      "_id": "671f5bb19993b532be4c3482",
+      "tags": [
+        "672f5b529193b532be4c612b",
+        "672f2b529191b532be4c615c"
+      ],
+      "moderators": [
+        "64edcfba8eaf76400c6c2efa"
+      ],
+      "author": {
+        "_id": "64edcfba8eaf76400c6c2efa",
+        "is": {
+
+        },
+        "data": {
+
+        },
+        "thumb": "/assets/default.png",
+        "email": "email@example.com",
+        "reg_email": "email@example.com",
+        "tools": [],
+        "projects": [],
+        "skills": [],
+        "languages": [],
+        "upwork_skills": [],
+        "__v": 0
+      },
       "title": "The Future of Computational Intelligence",
-      "author": "John Doe",
-      "published": "2024-08-11T10:00:00Z",
       "description": "This article explores the future of computational intelligence...",
       "shortDescription": "In this article...",
-      "tags": ["computational", "intelligence"]
-    },
-    {
-      "id": "article124",
-      "title": "Introduction to Quantum Mechanics",
-      "author": "Jane Smith",
-      "published": "2024-09-01T12:30:00Z",
-      "description": "This article provides an introduction to quantum mechanics...",
-      "shortDescription": "In this article...",
-      "tags": ["physics", "quantum", "mechanics"]
+      "__v": 0
     }
   ]
 }
@@ -418,13 +432,26 @@
       <li><code>status</code> (string): Status of the response, either <code>"success"</code> or <code>"error"</code>.</li>
       <li><code>data</code> (array): List of articles associated with the given tag ID.</li>
       <ul>
-        <li>&emsp;<code>id</code> (string): Unique identifier of the article.</li>
+        <li>&emsp;<code>_id</code> (string): Unique identifier of the article.</li>
+        <li>&emsp;<code>tags</code> (array of strings): Array of tag IDs associated with the article.</li>
+        <li>&emsp;<code>moderators</code> (array of strings): Array of user IDs who moderate the article.</li>
+        <li>&emsp;<code>author</code> (object): An object containing author details:</li>
+        <li>&emsp;&emsp;<code>_id</code> (string): Unique identifier for the author.</li>
+        <li>&emsp;&emsp;<code>is</code> (object): Reserved for additional author metadata.</li>
+        <li>&emsp;&emsp;<code>data</code> (object): Reserved for additional author data.</li>
+        <li>&emsp;&emsp;<code>thumb</code> (string): URL to the author's profile picture or thumbnail.</li>
+        <li>&emsp;&emsp;<code>email</code> (string): Author's email address.</li>
+        <li>&emsp;&emsp;<code>reg_email</code> (string): Author's registered email address.</li>
+        <li>&emsp;&emsp;<code>tools</code> (array): Array of tools associated with the author.</li>
+        <li>&emsp;&emsp;<code>projects</code> (array): Array of projects associated with the author.</li>
+        <li>&emsp;&emsp;<code>skills</code> (array): Array of skills associated with the author.</li>
+        <li>&emsp;&emsp;<code>languages</code> (array): Array of languages associated with the author.</li>
+        <li>&emsp;&emsp;<code>upwork_skills</code> (array): Array of Upwork skills associated with the author.</li>
+        <li>&emsp;&emsp;<code>__v</code> (integer): Version key for the document (usually set to 0 initially).</li>
         <li>&emsp;<code>title</code> (string): Title of the article.</li>
-        <li>&emsp;<code>author</code> (string): Name of the author who wrote the article.</li>
-        <li>&emsp;<code>published</code> (string): The date and time the article was published.</li>
         <li>&emsp;<code>description</code> (string): The full description of the article.</li>
         <li>&emsp;<code>shortDescription</code> (string): The short description of the article.</li>
-        <li>&emsp;<code>tags</code> (array): List of tags associated with the article.</li>
+        <li>&emsp;<code>__v</code> (integer): Version key for the document (usually set to 0 initially).</li>
       </ul>
     </ul>
 
@@ -455,8 +482,8 @@
     </ul>
 
     <h2>Request Example</h2>
-    <p>This request fetches all articles written by the author with ID "67890".</p>
-    <div id="editor4" class="editor">GET /api/article/byAuthor/67890</div>
+    <p>This request fetches all articles written by the author with ID "64edcfba8eaf76400c6c2efa".</p>
+    <div id="editor4" class="editor">GET /api/article/byAuthor/64edcfba8eaf76400c6c2efa</div>
 
     <h2>Responses</h2>
     <h3>Success (200 OK)</h3>
@@ -468,22 +495,36 @@
   "status": "success",
   "data": [
     {
-      "id": "article123",
+      "_id": "671f5bb19993b532be4c3482",
+      "tags": [
+        "672f5b529193b532be4c612b",
+        "672f2b529191b532be4c615c"
+      ],
+      "moderators": [
+        "64edcfba8eaf76400c6c2efa"
+      ],
+      "author": {
+        "_id": "64edcfba8eaf76400c6c2efa",
+        "is": {
+    
+        },
+        "data": {
+    
+        },
+        "thumb": "/assets/default.png",
+        "email": "email@example.com",
+        "reg_email": "email@example.com",
+        "tools": [],
+        "projects": [],
+        "skills": [],
+        "languages": [],
+        "upwork_skills": [],
+        "__v": 0
+      },
       "title": "The Future of Computational Intelligence",
-      "author": "John Doe",
-      "published": "2024-08-11T10:00:00Z",
       "description": "This article explores the future of computational intelligence...",
       "shortDescription": "In this article...",
-      "tags": ["computational", "intelligence"]
-    },
-    {
-      "id": "article124",
-      "title": "Introduction to Quantum Mechanics",
-      "author": "Jane Smith",
-      "published": "2024-09-01T12:30:00Z",
-      "description": "This article provides an introduction to quantum mechanics...",
-      "shortDescription": "In this article...",
-      "tags": ["physics", "quantum", "mechanics"]
+      "__v": 0
     }
   ]
 }
@@ -502,13 +543,26 @@
       <li><code>status</code> (string): Status of the response, either <code>"success"</code> or <code>"error"</code>.</li>
       <li><code>data</code> (array): List of articles written by the given author ID.</li>
       <ul>
-        <li>&emsp;<code>id</code> (string): Unique identifier of the article.</li>
+        <li>&emsp;<code>_id</code> (string): Unique identifier of the article.</li>
+        <li>&emsp;<code>tags</code> (array of strings): Array of tag IDs associated with the article.</li>
+        <li>&emsp;<code>moderators</code> (array of strings): Array of user IDs who moderate the article.</li>
+        <li>&emsp;<code>author</code> (object): An object containing author details:</li>
+        <li>&emsp;&emsp;<code>_id</code> (string): Unique identifier for the author.</li>
+        <li>&emsp;&emsp;<code>is</code> (object): Reserved for additional author metadata.</li>
+        <li>&emsp;&emsp;<code>data</code> (object): Reserved for additional author data.</li>
+        <li>&emsp;&emsp;<code>thumb</code> (string): URL to the author's profile picture or thumbnail.</li>
+        <li>&emsp;&emsp;<code>email</code> (string): Author's email address.</li>
+        <li>&emsp;&emsp;<code>reg_email</code> (string): Author's registered email address.</li>
+        <li>&emsp;&emsp;<code>tools</code> (array): Array of tools associated with the author.</li>
+        <li>&emsp;&emsp;<code>projects</code> (array): Array of projects associated with the author.</li>
+        <li>&emsp;&emsp;<code>skills</code> (array): Array of skills associated with the author.</li>
+        <li>&emsp;&emsp;<code>languages</code> (array): Array of languages associated with the author.</li>
+        <li>&emsp;&emsp;<code>upwork_skills</code> (array): Array of Upwork skills associated with the author.</li>
+        <li>&emsp;&emsp;<code>__v</code> (integer): Version key for the document (usually set to 0 initially).</li>
         <li>&emsp;<code>title</code> (string): Title of the article.</li>
-        <li>&emsp;<code>author</code> (string): Name of the author who wrote the article.</li>
-        <li>&emsp;<code>published</code> (string): The date and time the article was published.</li>
         <li>&emsp;<code>description</code> (string): The full description of the article.</li>
         <li>&emsp;<code>shortDescription</code> (string): The short description of the article.</li>
-        <li>&emsp;<code>tags</code> (array): List of tags associated with the article.</li>
+        <li>&emsp;<code>__v</code> (integer): Version key for the document (usually set to 0 initially).</li>
       </ul>
     </ul>
 
@@ -543,27 +597,42 @@
 
     <h2>Response</h2>
     <h3>Success (200 OK)</h3>
-    <p>A successful response will return a JSON object containing an array of tags used globally across all articles. Each tag includes a
-      unique identifier, the name, and the description of the tag.
+    <p>A successful response will return a JSON object containing an array of tags used globally across all articles. Each tag includes details
+      such as its ID, name, description, author, and assigned moderators.
     </p>
     
     <div id="editor8" class="editor">{
   "status": "success",
   "data": [
     {
-      "id": "tag123",
+      "_id": "672f5b529193b532be4c612b",
+      "moderators": [
+        "64edcfba8eaf76400c6c2efa"
+      ],
+      "author": "64edcfba8eaf76400c6c2efa",
       "name": "computational",
-      "description": "Techniques and methods for solving complex problems using algorithms and computational systems."
+      "description": "Techniques and methods for solving complex problems using algorithms and computational systems.",
+      "__v": 0
     },
     {
-      "id": "tag124",
+      "_id": "672f2b529191b532be4c615c",
+      "moderators": [
+        "64edcfba8eaf76400c6c2efa"
+      ],
+      "author": "64edcfba8eaf76400c6c2efa",
       "name": "intelligence",
-      "description": "Exploration of smart systems and cognitive technologies that enable decision-making and problem-solving."
+      "description": "Exploration of smart systems and cognitive technologies that enable decision-making and problem-solving.",
+      "__v": 0
     },
     {
-      "id": "tag125",
+      "_id": "672f2b519161b322b14c6150",
+      "moderators": [
+        "64edcfba8eaf76400c6c2efa"
+      ],
+      "author": "64edcfba8eaf76400c6c2efa",
       "name": "physics",
-      "description": "Study of natural laws and phenomena governing matter, energy, and their interactions."
+      "description": "Study of natural laws and phenomena governing matter, energy, and their interactions.",
+      "__v": 0
     }
   ]
 }
@@ -574,9 +643,12 @@
       <li><code>status</code> (string): Status of the response, either <code>"success"</code> or <code>"error"</code>.</li>
       <li><code>data</code> (array): List of global tags.</li>
       <ul>
-        <li>&emsp;<code>id</code> (string): Unique identifier of the tag.</li>
+        <li>&emsp;<code>_id</code> (string): Unique identifier of the tag.</li>
+        <li>&emsp;<code>moderators</code> (array of strings): Array of user IDs who are moderators for the tag.</li>
+        <li>&emsp;<code>author</code> (string): User ID of the tag's author.</li>
         <li>&emsp;<code>name</code> (string): The name of the tag.</li>
         <li>&emsp;<code>description</code> (string): The description of the tag.</li>
+        <li>&emsp;<code>__v</code> (integer): Version key for the document (usually set to 0 initially).</li>
       </ul>
     </ul>
 
@@ -608,32 +680,47 @@
     </ul>
 
     <h2>Request Example</h2>
-    <p>This request fetches all tags used by the author with ID "67890".</p>
-    <div id="editor9" class="editor">GET /api/article/tags/67890</div>
+    <p>This request fetches all tags used by the author with ID "64edcfba8eaf76400c6c2efa".</p>
+    <div id="editor9" class="editor">GET /api/article/tags/64edcfba8eaf76400c6c2efa</div>
 
     <h2>Responses</h2>
     <h3>Success (200 OK)</h3>
     <p>A successful response will return a JSON object containing an array of tags used in the articles written by the
-      specified author. Each tag includes a unique identifier, the name, and the description of the tag.
+      specified author. Each tag includes details such as its ID, name, description, author, and assigned moderators.
     </p>
     
     <div id="editor10" class="editor">{
   "status": "success",
   "data": [
     {
-      "id": "tag123",
+      "_id": "672f5b529193b532be4c612b",
+      "moderators": [
+        "64edcfba8eaf76400c6c2efa"
+      ],
+      "author": "64edcfba8eaf76400c6c2efa",
       "name": "computational",
-      "description": "Techniques and methods for solving complex problems using algorithms and computational systems."
+      "description": "Techniques and methods for solving complex problems using algorithms and computational systems.",
+      "__v": 0
     },
     {
-      "id": "tag124",
+      "_id": "672f2b529191b532be4c615c",
+      "moderators": [
+        "64edcfba8eaf76400c6c2efa"
+      ],
+      "author": "64edcfba8eaf76400c6c2efa",
       "name": "intelligence",
-      "description": "Exploration of smart systems and cognitive technologies that enable decision-making and problem-solving."
+      "description": "Exploration of smart systems and cognitive technologies that enable decision-making and problem-solving.",
+      "__v": 0
     },
     {
-      "id": "tag125",
+      "_id": "672f2b519161b322b14c6150",
+      "moderators": [
+        "64edcfba8eaf76400c6c2efa"
+      ],
+      "author": "64edcfba8eaf76400c6c2efa",
       "name": "physics",
-      "description": "Study of natural laws and phenomena governing matter, energy, and their interactions."
+      "description": "Study of natural laws and phenomena governing matter, energy, and their interactions.",
+      "__v": 0
     }
   ]
 }
@@ -652,9 +739,12 @@
       <li><code>status</code> (string): Status of the response, either <code>"success"</code> or <code>"error"</code>.</li>
       <li><code>data</code> (array): List of tags used by the given author ID.</li>
       <ul>
-        <li>&emsp;<code>id</code> (string): Unique identifier of the tag.</li>
+        <li>&emsp;<code>_id</code> (string): Unique identifier of the tag.</li>
+        <li>&emsp;<code>moderators</code> (array of strings): Array of user IDs who are moderators for the tag.</li>
+        <li>&emsp;<code>author</code> (string): User ID of the tag's author.</li>
         <li>&emsp;<code>name</code> (string): The name of the tag.</li>
         <li>&emsp;<code>description</code> (string): The description of the tag.</li>
+        <li>&emsp;<code>__v</code> (integer): Version key for the document (usually set to 0 initially).</li>
       </ul>
     </ul>
 
@@ -676,7 +766,7 @@
     <p><strong>Method:</strong> GET</p>
 
     <p><strong>Description:</strong> This endpoint retrieves a list of all authors who have contributed articles. It allows users to see
-      the complete set of authors, including their basic information such as name and ID.</p>
+      the complete set of authors, including their information such as name and ID.</p>
 
     <h2>Parameters</h2>
     <ul>
@@ -689,27 +779,61 @@
 
     <h2>Response</h2>
     <h3>Success (200 OK)</h3>
-    <p>A successful response will return a JSON object containing an array of authors. Each author includes a unique identifier, name, and
-      additional metadata such as the number of articles they have written.
+    <p>A successful response will return a JSON object containing an array of authors. Each author object provides detailed information
+      including ID, name, contact information, skills, and professional details.
     </p>
     
     <div id="editor13" class="editor">{
   "status": "success",
   "data": [
     {
-      "id": "author123",
-      "name": "John Doe",
-      "article_count": 12
+      "tools": [],
+      "projects": [],
+      "skills": [],
+      "languages": [],
+      "upwork_skills": [],
+      "_id": "64edd4b88eaf76400c6c2f32",
+      "thumb": "/api/user/image/64edd4b88eaf76400c6c2f32.jpg?1693913757053",
+      "is": {
+        "admin": false,
+        "designer": true,
+        "agent": true
+      },
+      "email": "angelina@webart.work",
+      "reg_email": "angelina@webart.work",
+      "data": {
+        "phone": "+380965951600",
+        "bio": null,
+        "role": "Junior HTML/CSS Developer \nAgent",
+        "location": "Kamianets-Podilskiy",
+        "upwork_link": null
+      },
+      "__v": 0,
+      "name": "Angelina"
     },
     {
-      "id": "author124",
-      "name": "Jane Smith",
-      "article_count": 8
-    },
-    {
-      "id": "author125",
-      "name": "Alice Johnson",
-      "article_count": 15
+      "tools": [],
+      "projects": [],
+      "skills": [],
+      "languages": [],
+      "upwork_skills": [],
+      "_id": "64edd4c28eaf76400c6c2f38",
+      "thumb": "/api/user/image/64edd4c28eaf76400c6c2f38.jpg?1693309031910",
+      "is": {
+        "admin": false,
+        "designer": true
+      },
+      "email": "artem@webart.work",
+      "reg_email": "artem@webart.work",
+      "data": {
+        "phone": "+38 093 293 62 65",
+        "bio": "I am proficient in HTML, CSS and JavaScript, and my experience will help you create web applications that...",
+        "role": "Junior Frontend Developer",
+        "location": "Kamianets-Podilsky",
+        "upwork_link": null
+      },
+      "__v": 0,
+      "name": "Artem"
     }
   ]
 }
@@ -718,18 +842,32 @@
     <h2>Response Fields</h2>
     <ul>
       <li><code>status</code> (string): Status of the response, either <code>"success"</code> or <code>"error"</code>.</li>
-      <li><code>data</code> (array): List of authors who have contributed articles.</li>
+      <li><code>data</code> (array): List of of author profile objects.</li>
       <ul>
-        <li>&emsp;<code>id</code> (string): Unique identifier of the author.</li>
-        <li>&emsp;<code>name</code> (string): Name of the author.</li>
-        <li>&emsp;<code>article_count</code> (integer): The total number of articles written by the author.</li>
+        <li>&emsp;<code>tools</code> (array): Array of tools associated with the author.</li>
+        <li>&emsp;<code>projects</code> (array): Array of projects associated with the author.</li>
+        <li>&emsp;<code>skills</code> (array): Array of skills associated with the author.</li>
+        <li>&emsp;<code>languages</code> (array): Array of languages associated with the author.</li>
+        <li>&emsp;<code>upwork_skills</code> (array): Array of Upwork skills associated with the author.</li>
+        <li>&emsp;<code>_id</code> (string): Unique identifier of the author.</li>
+        <li>&emsp;<code>thumb</code> (string): URL to the author's profile picture or thumbnail.</li>
+        <li>&emsp;<code>is</code> (object): Reserved for additional author metadata.</li>
+        <li>&emsp;<code>email</code> (string): Author's email address.</li>
+        <li>&emsp;<code>reg_email</code> (string): Author's registered email address.</li>
+        <li>&emsp;<code>data</code> (object): Reserved for additional author data:</li>
+        <li>&emsp;&emsp;<code>phone</code> (string): Author's phone number.</li>
+        <li>&emsp;&emsp;<code>bio</code> (string): Short biography of the author.</li>
+        <li>&emsp;&emsp;<code>role</code> (string): Author's current role or job title.</li>
+        <li>&emsp;&emsp;<code>location</code> (string): Author's location.</li>
+        <li>&emsp;&emsp;<code>upwork_link</code> (string): Link to the author's Upwork profile.</li>
+        <li>&emsp;<code>__v</code> (integer): Version key for the document (usually set to 0 initially).</li>
+        <li>&emsp;<code>name</code> (string): Author's name.</li>
       </ul>
     </ul>
 
     <h2>Notes</h2>
     <ul>
       <li>This endpoint returns a complete list of all authors in the system.</li>
-      <li>The <code>article_count</code> field gives the total number of articles each author has contributed.</li>
     </ul>
   </div>
 
@@ -744,8 +882,7 @@
     <p><strong>Method:</strong> GET</p>
 
     <p><strong>Description:</strong> This endpoint retrieves details about a specific author, identified by their <code>author_id</code>. It
-      allows users to access detailed information about an individual author, including their name, bio, and the number of
-      articles they have written.</p>
+      allows users to access detailed information about an individual author.</p>
 
     <h2>Parameters</h2>
     <ul>
@@ -754,22 +891,40 @@
     </ul>
 
     <h2>Request Example</h2>
-    <p>This request fetches details of the author with ID "67890".</p>
-    <div id="editor14" class="editor">GET /api/article/author/67890</div>
+    <p>This request fetches details of the author with ID "64edd4c28eaf76400c6c2f38".</p>
+    <div id="editor14" class="editor">GET /api/article/author/64edd4c28eaf76400c6c2f38</div>
 
     <h2>Responses</h2>
     <h3>Success (200 OK)</h3>
-    <p>A successful response will return a JSON object containing details of the specified author, including their unique ID, name, bio, and
-      article count.
+    <p>A successful response will return a JSON object containing details of the specified author. Author object provides detailed information
+      including ID, name, contact information, skills, and professional details.
     </p>
     
     <div id="editor15" class="editor">{
   "status": "success",
   "data": {
-    "id": "author67890",
-    "name": "Jane Smith",
-    "bio": "Jane Smith is an expert in 3D modeling...",
-    "article_count": 12
+    "tools": [],
+    "projects": [],
+    "skills": [],
+    "languages": [],
+    "upwork_skills": [],
+    "_id": "64edd4c28eaf76400c6c2f38",
+    "thumb": "/api/user/image/64edd4c28eaf76400c6c2f38.jpg?1693309031910",
+    "is": {
+      "admin": false,
+      "designer": true
+    },
+    "email": "artem@webart.work",
+    "reg_email": "artem@webart.work",
+    "data": {
+      "phone": "+38 093 293 62 65",
+      "bio": "I am proficient in HTML, CSS and JavaScript, and my experience will help you create web applications that...",
+      "role": "Junior Frontend Developer",
+      "location": "Kamianets-Podilsky",
+      "upwork_link": null
+    },
+    "__v": 0,
+    "name": "Artem"
   }
 }
 </div>
@@ -787,10 +942,24 @@
       <li><code>status</code> (string): Status of the response, either <code>"success"</code> or <code>"error"</code>.</li>
       <li><code>data</code> (object): Details of the specified author.</li>
       <ul>
-        <li>&emsp;<code>id</code> (string): Unique identifier of the author.</li>
-        <li>&emsp;<code>name</code> (string): Name of the author.</li>
-        <li>&emsp;<code>bio</code> (string): Short biography or description of the author.</li>
-        <li>&emsp;<code>article_count</code> (integer): The total number of articles written by the author.</li>
+        <li>&emsp;<code>tools</code> (array): Array of tools associated with the author.</li>
+        <li>&emsp;<code>projects</code> (array): Array of projects associated with the author.</li>
+        <li>&emsp;<code>skills</code> (array): Array of skills associated with the author.</li>
+        <li>&emsp;<code>languages</code> (array): Array of languages associated with the author.</li>
+        <li>&emsp;<code>upwork_skills</code> (array): Array of Upwork skills associated with the author.</li>
+        <li>&emsp;<code>_id</code> (string): Unique identifier of the author.</li>
+        <li>&emsp;<code>thumb</code> (string): URL to the author's profile picture or thumbnail.</li>
+        <li>&emsp;<code>is</code> (object): Reserved for additional author metadata.</li>
+        <li>&emsp;<code>email</code> (string): Author's email address.</li>
+        <li>&emsp;<code>reg_email</code> (string): Author's registered email address.</li>
+        <li>&emsp;<code>data</code> (object): Reserved for additional author data:</li>
+        <li>&emsp;&emsp;<code>phone</code> (string): Author's phone number.</li>
+        <li>&emsp;&emsp;<code>bio</code> (string): Short biography of the author.</li>
+        <li>&emsp;&emsp;<code>role</code> (string): Author's current role or job title.</li>
+        <li>&emsp;&emsp;<code>location</code> (string): Author's location.</li>
+        <li>&emsp;&emsp;<code>upwork_link</code> (string): Link to the author's Upwork profile.</li>
+        <li>&emsp;<code>__v</code> (integer): Version key for the document (usually set to 0 initially).</li>
+        <li>&emsp;<code>name</code> (string): Author's name.</li>
       </ul>
     </ul>
 
